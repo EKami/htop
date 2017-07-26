@@ -1,21 +1,7 @@
-Quick installation (RPi)
-------------------------
-```bash
-$ wget https://github.com/wbenny/htop/files/573914/htop_2.0.2-2_armhf.deb.zip
-$ unzip htop_2.0.2-2_armhf.deb.zip
-$ # You can install this package over old version.
-$ sudo dpkg -i htop_2.0.2-2_armhf.deb
-$ # In case you want create new default config file:
-$ rm -rf ~/.config/htop/htoprc
-```
-
-![htop-image](http://i.imgur.com/u2f2tjV.png)
-
-[![Build Status](https://travis-ci.org/hishamhm/htop.svg?branch=master)](https://travis-ci.org/hishamhm/htop)
-[![PayPal donate](https://img.shields.io/badge/paypal-donate-green.svg)](http://hisham.hm/htop/index.php?page=donate)
-
 [htop](http://hisham.hm/htop/)
 ====
+
+![htop-image](http://i.imgur.com/u2f2tjV.png)
 
 by Hisham Muhammad <hisham@gobolinux.org> (2004 - 2016)
 
@@ -49,6 +35,10 @@ Comparison between `htop` and classic `top`
 
 Compilation instructions
 ------------------------
+You first need to install the `lm-sensors` program. On Ubuntu:
+```
+sudo apt-get install lm-sensors
+```
 
 This program is distributed as a standard autotools-based package.
 See the [INSTALL](/INSTALL) file for detailed instructions.
@@ -63,6 +53,10 @@ For compiling sources downloaded from the Git repository, run:
 
 By default `make install` will install into `/usr/local`, for changing
 the path use `./configure --prefix=/some/path`.
+
+Then clear your previous htop configuration with:
+
+    rm -rf ~/.config/htop/htoprc
 
 See the manual page (`man htop`) or the on-line help ('F1' or 'h'
 inside `htop`) for a list of supported key commands.
