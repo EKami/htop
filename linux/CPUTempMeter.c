@@ -13,8 +13,6 @@ in the source distribution for its full text.
 
 #include <limits.h>
 
-#define SYS_THERMAL_DIR "/sys/class/thermal"
-
 /*{
 #include "Meter.h"
 }*/
@@ -28,14 +26,14 @@ int CPUTempMeter_attributes[] = {
 static void CPUTempMeter_updateValues(Meter* this, char* buffer, int len) {
    this->values[0] = 0.0;
 
-   FILE* file;
-   file = fopen(SYS_THERMAL_DIR "/thermal_zone0/temp", "r");
-   if (!file)
+   FILE* pipe;
+   pipe = popen("sensors | grep -oP 'Physical.*?\\+\\K[0-9.]+'", "r");
+   if (!pipe)
      return;
 
    char* line = NULL;
-   line = String_readLine(file);
-   fclose(file);
+   line = String_readLine(pipe);
+   fclose(pipe);
    if (!line)
      return;
 
@@ -43,7 +41,6 @@ static void CPUTempMeter_updateValues(Meter* this, char* buffer, int len) {
    temperature = strtod(line, NULL);
    free(line);
 
-   temperature /= 1000.0;
    this->values[0] = temperature;
 
    snprintf(buffer, len, "%d/%d", (int)this->values[0], (int)this->total);
