@@ -35,17 +35,13 @@ Comparison between `htop` and classic `top`
 
 Compilation instructions
 ------------------------
-You first need to install the `lm-sensors` program. On Ubuntu:
+You first need to install the `lm-sensors` program and autoreconf. On Ubuntu:
 ```
-sudo apt-get install lm-sensors
+sudo apt-get install lm-sensors dh-autoreconf
 ```
 
 This program is distributed as a standard autotools-based package.
 See the [INSTALL](/INSTALL) file for detailed instructions.
-
-When compiling from a [release tarball](https://hisham.hm/htop/releases/), run:
-
-    ./configure && make
 
 For compiling sources downloaded from the Git repository, run:
 
