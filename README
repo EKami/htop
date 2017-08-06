@@ -37,7 +37,7 @@ Compilation instructions
 ------------------------
 You first need to install the `lm-sensors` program and autoreconf. On Ubuntu:
 ```
-sudo apt-get install lm-sensors autoconf
+sudo apt-get install lm-sensors dh-autoreconf
 ```
 
 This program is distributed as a standard autotools-based package.
