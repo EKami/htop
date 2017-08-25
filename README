@@ -44,6 +44,12 @@ Then run:
 sudo sensors-detect
 ```
 To detect your motherboard sensors.
+Then run:
+```
+sensors | grep -oP 'Physical.*?\+\K[0-9.]+'
+```
+If the command returns a temperature then you're good, if it returns
+nothing fix your sensor-detect program.
 
 This program is distributed as a standard autotools-based package.
 See the [INSTALL](/INSTALL) file for detailed instructions.
