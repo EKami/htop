@@ -39,6 +39,11 @@ You first need to install the `lm-sensors` program and autoreconf. On Ubuntu:
 ```
 sudo apt-get install lm-sensors dh-autoreconf
 ```
+Then run:
+```
+sudo sensors-detect
+```
+To detect your motherboard sensors.
 
 This program is distributed as a standard autotools-based package.
 See the [INSTALL](/INSTALL) file for detailed instructions.
