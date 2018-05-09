@@ -52,7 +52,7 @@ If the command returns a temperature then you're good, if it returns
 nothing fix your configuration. Run only `sensor` to see if it displays
 your CPU core temp. If it does then the above command must be adapted to
 the line 30 of linux/CPUTempMeter.c . For instance you may change it to: 
-`sensors | grep -oP 'Package id 0.*?\+\K[0-9.]+'`
+`sensors | grep -oP 'Package id 0.*?\\+\\K[0-9.]+'` (notice the `\` added to the grep command)
 
 This program is distributed as a standard autotools-based package.
 See the [INSTALL](/INSTALL) file for detailed instructions.
