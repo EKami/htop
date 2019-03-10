@@ -27,7 +27,7 @@ static void CPUTempMeter_updateValues(Meter* this, char* buffer, int len) {
    this->values[0] = 0.0;
 
    FILE* pipe;
-   pipe = popen("sensors | grep -oP 'Physical.*?\\+\\K[0-9.]+'", "r");
+   pipe = popen("sensors | grep -oP 'Package id 0.*?\\+\\K[0-9.]+'", "r");
    if (!pipe)
      return;
 
